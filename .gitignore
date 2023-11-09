@@ -1,3 +1,5 @@
 __pycache__
 .cog
-model-cache
+safety-cache
+sdxl-cache
+weights-cache
