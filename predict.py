@@ -335,7 +335,6 @@ class Predictor(BasePredictor):
 
         if not apply_watermark:
             pipe.watermark = watermark_cache
-            self.refiner.watermark = watermark_cache
 
         if not disable_safety_checker:
             _, has_nsfw_content = self.run_safety_checker(output.images)
