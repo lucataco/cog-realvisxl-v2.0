@@ -65,7 +65,7 @@ class Predictor(BasePredictor):
             print("skipping loading .. weights already loaded")
             return
 
-        self.tuned_weights = weights
+        self.tuned_weights = None
         local_weights_cache = self.weights_cache.ensure(weights)
         # load UNET
         print("Loading fine-tuned model")
@@ -133,6 +133,7 @@ class Predictor(BasePredictor):
         with open(os.path.join(local_weights_cache, "special_params.json"), "r") as f:
             params = json.load(f)
         self.token_map = params
+        self.tuned_weights = weights 
         self.tuned_model = True
 
     def setup(self, weights: Optional[Path] = None):
